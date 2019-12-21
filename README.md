@@ -259,36 +259,36 @@ go
 ```
 # Quản lý quyền người dùng
  
-Login: (sysadmin/securityadmin)
+##Login: (sysadmin/securityadmin)
  
-## Tạo login 
+### Tạo login 
  
 exec sp_addlogin '@loginname', '@pass', '@defaultDB'
  
-## Grant login cho người dùng windows
+### Grant login cho người dùng windows
  
 exec sp_grantlogin 'window_account'
 exec sp_grantlogin 'Server01\user01'
  
-## Đổi pass
+### Đổi pass
  
 exec sp_password '@oldpass','@newpass','@loginname'
  
-## Hủy quyền login được grant
+### Hủy quyền login được grant
  
 exec sp_revokelogin '@loginname'
  
-## Xóa login
+### Xóa login
  
 exec sp_droplogin '@loginname'
  
-## Đổi db mặc định
+### Đổi db mặc định
  
 exec sp_defaultdb '@loginname','@dbname'
  
-User: (sysadmin,db_owner,db_accessadmin)
+#User: (sysadmin,db_owner,db_accessadmin)
  
-## Tạo user (cấp quyền truy cập cho 1 login vào database hiện hành)
+### Tạo user (cấp quyền truy cập cho 1 login vào database hiện hành)
  
 Create user user_name 
 For login login_name
@@ -297,37 +297,37 @@ Create user user_name
 From login login_name
 With default schema schema_name
  
-## Xóa user
+### Xóa user
  
 exec sp_revokedbaccess '@username'
  
-Role: (sysadmin, db_owner, db_securityadmin)
+#Role: (sysadmin, db_owner, db_securityadmin)
  
-## Thêm role
+### Thêm role
  
 exec sp_addrole '@rolename'[,'@owner']
 exec sp_addrole 'Developer'
 exec sp_addrole 'Developer','dbo'
  
-## Xóa role
+### Xóa role
  
 exec sp_droprole '@rolename'
  
-## Thêm login vào role hệ thống
+### Thêm login vào role hệ thống
  
 exec sp_addsrvrolemember '@loginname','@rolename'
  
-## Thêm login vào role database
+### Thêm login vào role database
  
 exec sp_addrolemember '@rolename','@username/@rolename'(@sercurity_acc)
  
-## Server role
+### Server role
  
 sysadmin : full quyền  (sa)
 securityadmin : quản lý login (reset pass,grant,revoke,deny)
 dbcreatetor: create,drop,alter,restore database
  
-## Database role
+### Database role
  
 db_owner : full quyền trong db (dbo)
 db_accessadmin : add remove các truy cập
