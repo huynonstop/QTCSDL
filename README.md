@@ -259,7 +259,7 @@ go
 ```
 # Quản lý quyền người dùng
  
-##Login: (sysadmin/securityadmin)
+## Login: (sysadmin/securityadmin)
  
 ### Tạo login 
  
@@ -286,7 +286,7 @@ exec sp_droplogin '@loginname'
  
 exec sp_defaultdb '@loginname','@dbname'
  
-#User: (sysadmin,db_owner,db_accessadmin)
+## User: (sysadmin,db_owner,db_accessadmin)
  
 ### Tạo user (cấp quyền truy cập cho 1 login vào database hiện hành)
  
@@ -301,7 +301,7 @@ With default schema schema_name
  
 exec sp_revokedbaccess '@username'
  
-#Role: (sysadmin, db_owner, db_securityadmin)
+## Role: (sysadmin, db_owner, db_securityadmin)
  
 ### Thêm role
  
